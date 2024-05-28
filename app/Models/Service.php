@@ -56,4 +56,9 @@ class Service extends Model
     {
         return $this->belongsTo(Plate::class);
     }
+
+    public function invoice(): BelongsTo
+    {
+        return $this->belongsTo(Invoice::class);
+    }
 }
