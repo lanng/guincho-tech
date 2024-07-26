@@ -2,11 +2,10 @@
 
 namespace App\Http\Requests;
 
-use App\Enums\UserRoleEnum;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 
-class CompanyStoreRequest extends FormRequest
+class DriverUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +23,7 @@ class CompanyStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'string|required|max:45'
+            'name' => 'required|string'
         ];
     }
 }
