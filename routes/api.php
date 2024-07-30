@@ -3,6 +3,7 @@
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\DriverController;
 use App\Http\Controllers\InsuranceController;
+use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\PlateController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -18,5 +19,6 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::apiResource('drivers', DriverController::class);
     Route::apiResource('insurances', InsuranceController::class);
     Route::apiResource('plates', PlateController::class);
+    Route::apiResource('invoices', InvoiceController::class);
 });
 

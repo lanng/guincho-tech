@@ -16,6 +16,7 @@ class Service extends Model
         'insurance_id',
         'driver_id',
         'plate_id',
+        'invoice_id',
         'status',
         'work_order',
         'vehicle',
