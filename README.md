@@ -1,66 +1,81 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Guincho  Tech - :construction: em desenvolvimento :construction:
+Projeto desenvolvido a fim de auxiliar o gerenciamento das empresas de guincho, reduzindo custos operacionais e aprimorando a
+experiência do armazenamento e gerenciamento de serviços prestados no dia-a-dia. <br>
+O desenvolvimento foi projetado com a finalidade principal de estudos, futuramente será realizado a integração de fato
+com a empresa realizando os ajustes necessários.
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Tecnologias utilizadas
+Ferramenta foi desenvolvida em duas partes, a API desenvolvida com framework php Laravel, com o uso de pacotes como o Laravel Sanctum
+para gerenciar os acessos a ferramenta com base no login e role de cada usuário. <br>
+O repositorio para o front-end da aplicação pode ser encontrado [por aqui](https://github.com/lanng/front-guincho-tech)
 
-## About Laravel
+## Tabela de conteúdo
+ - [Início](#guincho--tech)
+ - [Tecnologias](#tecnologias-utilizadas)
+ - [Instalação](#instalação)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Instalação
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### Pré-requisitos
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Antes de começar, certifique-se de que você tem os seguintes softwares instalados:
 
-## Learning Laravel
+- **PHP** (versão 8.x ou superior)
+- **Composer** (gerenciador de dependências do PHP)
+- **Git** (para clonar o repositório)
+- **MySQL** (para o banco de dados)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Passo a Passo
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### 1. Clonar o Repositório
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+```bash
+ git clone https://github.com/lanng/guincho-tech
+```
 
-## Laravel Sponsors
+### 2. Navegar até o Diretório do Projeto
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+```bash
+ cd guincho-tech
+```
 
-### Premium Partners
+### 3. Instalar as Dependências do PHP
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+```bash
+  composer install
+```
 
-## Contributing
+### 4. Configurar o Arquivo `.env`
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+```bash
+cp .env.example .env
+```
+Abra o arquivo `.env` no editor de texto de sua escolha e altere conforme necessário.
 
-## Code of Conduct
+### 5. Gerar a Chave da Aplicação
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```bash
+  php artisan key:generate
+```
 
-## Security Vulnerabilities
+### 6. Configurar o Banco de Dados
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```bash
+  php artisan migrate
+```
 
-## License
+### 7. Executar o seeders para ter acesso aos usuários autenticados
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```bash
+    php artisan db:seed
+```
+Será gerado um usuário administrador e um usuário normal, pode ser alterado editando o seeder.
+
+### 8. Rodar o Servidor de Desenvolvimento
+
+```bash
+  php artisan serve
+```
+A aplicação ficará disponível em `http://localhost:8000`.
+
+## Projeto em desenvolvimento
