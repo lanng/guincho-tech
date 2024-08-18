@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Insurance;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 
-class InsuranceStoreRequest extends FormRequest
+class InsuranceRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,7 +23,14 @@ class InsuranceStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string'
+            'name' => 'required|string|unique:insurances,name'
+        ];
+    }
+
+    public function attributes(): array
+    {
+        return [
+            'name' => 'nome',
         ];
     }
 }

@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Plate;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 
-class PlateUpdateRequest extends FormRequest
+class PlateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,6 +24,13 @@ class PlateUpdateRequest extends FormRequest
     {
         return [
             'plate' => 'required|string|max:8'
+        ];
+    }
+
+    public function attributes(): array
+    {
+        return [
+            'plate' => 'placa',
         ];
     }
 }

@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Driver;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 
-class PlateStoreRequest extends FormRequest
+class DriverRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,7 +23,14 @@ class PlateStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'plate' => 'required|string|max:8'
+            'name' => 'required|string',
+        ];
+    }
+
+    public function attributes(): array
+    {
+        return [
+            'name' => 'nome',
         ];
     }
 }
