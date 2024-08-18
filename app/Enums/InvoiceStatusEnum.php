@@ -18,4 +18,9 @@ enum InvoiceStatusEnum: int
             self::CANCELED => 'Cancelado',
         };
     }
+
+    public function getValues(): array
+    {
+        return array_column(self::cases(), 'value');
+    }
 }
