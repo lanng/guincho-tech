@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\InvoiceStoreRequest;
-use App\Http\Requests\InvoiceUpdateRequest;
+use App\Http\Requests\Invoice\InvoiceStoreRequest;
+use App\Http\Requests\Invoice\InvoiceUpdateRequest;
 use App\Models\Invoice;
 use App\Services\InvoiceService;
 use Illuminate\Http\JsonResponse;

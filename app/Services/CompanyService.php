@@ -2,35 +2,58 @@
 
 namespace App\Services;
 
-use App\Http\Requests\CompanyStoreRequest;
-use App\Http\Requests\CompanyUpdateRequest;
+use App\Exceptions\CompanyException;
+use App\Http\Requests\Company\CompanyStoreRequest;
+use App\Http\Requests\Company\CompanyUpdateRequest;
 use App\Models\Company;
+use Exception;
 use Illuminate\Support\Collection;
 
 class CompanyService
 {
+
+    public function __construct(protected Company $company)
+    {
+    }
+
     public function list(): Collection
     {
-        $companies = Company::all();
+        $companies = $this->company->all();
         return $companies;
     }
 
-    public function store(CompanyStoreRequest $request)
+    public function findById(int $id): Company
     {
-        $company = Company::create($request->validated());
-
-        return $company;
+        $company = $this->company->findOrFail($id)->first();
+        if ($company){
+            return $company;
+        }
+        throw CompanyException::companyNotFound();
     }
 
-    public function update(CompanyUpdateRequest $request, Company $company)
+    public function store(CompanyStoreRequest $request): Company
     {
-        $company->update($request->validated());
-
-        return $company;
+        $data = $request->validated();
+        if ($data) {
+            $company = $this->company->create($data);
+            return $company;
+        }
+        throw CompanyException::failedToCreateCompany($data);
     }
 
-    public function destroy(Company $company)
+    public function update(CompanyUpdateRequest $request, Company $company): Company
     {
-        $company->delete();
+        $data = $request->validated();
+        if ($company->update($data)) {
+            return $company;
+        }
+        throw CompanyException::failedToUpdateCompany();
+    }
+
+    public function destroy(Company $company): void
+    {
+        if (!$company->delete()) {
+            throw CompanyException::failedToDeleteCompany();
+        }
     }
 }

@@ -2,35 +2,58 @@
 
 namespace App\Services;
 
-use App\Http\Requests\DriverStoreRequest;
-use App\Http\Requests\DriverUpdateRequest;
+use App\Exceptions\DriverException;
+use App\Http\Requests\Driver\DriverStoreRequest;
+use App\Http\Requests\Driver\DriverUpdateRequest;
 use App\Models\Driver;
-use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Collection;
-use function Pest\Laravel\json;
 
 class DriverService
 {
+    public function __construct(protected Driver $driver)
+    {
+    }
+
     public function list(): Collection
     {
-        $drivers = Driver::all();
+        $drivers = $this->driver->all();
         return $drivers;
+    }
+
+    public function findById(int $id): Driver
+    {
+        $driver = $this->driver->findOrFail($id)->first();
+        if ($driver){
+            return $driver;
+        }
+        throw DriverException::driverNotFound($id);
     }
 
     public function store(DriverStoreRequest $request): Driver
     {
-        $driver = Driver::create($request->validated());
-        return $driver;
+        $data = $request->validated();
+        if ($data){
+            $driver = $this->driver->create($data);
+            return $driver;
+        }
+
+        throw DriverException::failedToCreateDriver($data);
     }
 
     public function update(DriverUpdateRequest $request, Driver $driver): Driver
     {
-        $driver->update($request->validated());
-        return $driver;
+        $data = $request->validated();
+        if ($driver->update($data)){
+            return $driver;
+        }
+
+        throw DriverException::failedToUpdateDriver($data);
     }
 
     public function destroy(Driver $driver): void
     {
-        $driver->delete();
+        if(!$driver->delete()){
+            throw DriverException::failedToDeleteDriver();
+        }
     }
 }

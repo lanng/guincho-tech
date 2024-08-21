@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\PlateStoreRequest;
-use App\Http\Requests\PlateUpdateRequest;
+use App\Http\Requests\Plate\PlateStoreRequest;
+use App\Http\Requests\Plate\PlateUpdateRequest;
 use App\Models\Plate;
 use App\Services\PlateServices;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 
 class PlateController extends Controller
 {

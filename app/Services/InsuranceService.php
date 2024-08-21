@@ -2,8 +2,8 @@
 
 namespace App\Services;
 
-use App\Http\Requests\InsuranceStoreRequest;
-use App\Http\Requests\InsuranceUpdateRequest;
+use App\Http\Requests\Insurance\InsuranceStoreRequest;
+use App\Http\Requests\Insurance\InsuranceUpdateRequest;
 use App\Models\Insurance;
 use Illuminate\Support\Collection;
 

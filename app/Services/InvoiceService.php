@@ -2,17 +2,16 @@
 
 namespace App\Services;
 
-use App\Http\Requests\InvoiceStoreRequest;
-use App\Http\Requests\InvoiceUpdateRequest;
+use App\Http\Requests\Invoice\InvoiceStoreRequest;
+use App\Http\Requests\Invoice\InvoiceUpdateRequest;
 use App\Models\Invoice;
-use Illuminate\Support\Collection;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 
 class InvoiceService
 {
-    public function list(): Collection
+    public function list(): LengthAwarePaginator
     {
-        $invoices = Invoice::all();
-        return $invoices;
+         return Invoice::paginate('30');
     }
 
     public function store(InvoiceStoreRequest $request): Invoice

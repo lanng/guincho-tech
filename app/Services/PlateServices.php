@@ -2,8 +2,8 @@
 
 namespace App\Services;
 
-use App\Http\Requests\PlateStoreRequest;
-use App\Http\Requests\PlateUpdateRequest;
+use App\Http\Requests\Plate\PlateStoreRequest;
+use App\Http\Requests\Plate\PlateUpdateRequest;
 use App\Models\Plate;
 use Illuminate\Support\Collection;
 

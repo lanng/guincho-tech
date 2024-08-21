@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\DriverStoreRequest;
-use App\Http\Requests\DriverUpdateRequest;
+use App\Http\Requests\Driver\DriverStoreRequest;
+use App\Http\Requests\Driver\DriverUpdateRequest;
 use App\Models\Driver;
 use App\Services\DriverService;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 
 class DriverController extends Controller
 {

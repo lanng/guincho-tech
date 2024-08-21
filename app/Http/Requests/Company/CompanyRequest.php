@@ -23,7 +23,7 @@ class CompanyRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'string|required|max:4',
+            'name' => 'string|required|max:45',
         ];
     }
 

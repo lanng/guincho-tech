@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\InsuranceStoreRequest;
-use App\Http\Requests\InsuranceUpdateRequest;
+use App\Http\Requests\Insurance\InsuranceStoreRequest;
+use App\Http\Requests\Insurance\InsuranceUpdateRequest;
 use App\Models\Insurance;
 use App\Services\InsuranceService;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 
 class InsuranceController extends Controller
 {
