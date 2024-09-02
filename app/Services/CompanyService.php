@@ -47,7 +47,7 @@ class CompanyService
         if ($company->update($data)) {
             return $company;
         }
-        throw CompanyException::failedToUpdateCompany();
+        throw CompanyException::failedToUpdateCompany($data);
     }
 
     public function destroy(Company $company): void

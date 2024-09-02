@@ -16,7 +16,7 @@ class Insurance extends Model
 
     public function services(): HasMany
     {
-        return $this->hasMany(Service::class);
+        return $this->hasMany(Tow::class);
     }
 
     public function invoices(): HasMany
