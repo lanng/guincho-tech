@@ -16,6 +16,6 @@ class Driver extends Model
 
     public function services(): HasMany
     {
-        return $this->hasMany(Service::class);
+        return $this->hasMany(Tow::class);
     }
 }

@@ -23,7 +23,7 @@ class Invoice extends Model
 
     public function services(): HasMany
     {
-        return $this->HasMany(Service::class);
+        return $this->HasMany(Tow::class);
     }
 
     public function company(): HasOne
